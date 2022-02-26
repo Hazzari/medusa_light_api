@@ -52,7 +52,6 @@ COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements.txt .
 RUN pip install --upgrade pip && pip install --no-cache /wheels/*
 
-
 # copy project
 COPY . $APP_HOME
 
