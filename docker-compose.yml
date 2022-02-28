@@ -50,12 +50,22 @@ services:
     container_name: nginx
     volumes:
       - static_volume:/home/app/web/backend/static
+      - ./cert/certbot/conf:/etc/letsencrypt
+      - ./cert/certbot/www:/var/www/certbot
     ports:
       - '80:80'
+      - '443:443'
     depends_on:
       - web
     env_file:
       - ./config/.env
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./cert/certbot/conf:/etc/letsencrypt
+      - ./cert/certbot/www:/var/www/certbot
+
+
 
 
 
@@ -63,3 +73,4 @@ volumes:
   postgres_data:
   static_volume:
   pgadmin:
+
