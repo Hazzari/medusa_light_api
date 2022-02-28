@@ -5,9 +5,9 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(example.org www.example.org)
+domains=(ec2-34-244-251-13.eu-west-1.compute.amazonaws.com www.ec2-34-244-251-13.eu-west-1.compute.amazonaws.com)
 rsa_key_size=4096
-data_path="./data/certbot"
+data_path="./cert/certbot"
 email="" # Adding a valid address is strongly recommended
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
 
